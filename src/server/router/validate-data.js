@@ -6,7 +6,7 @@ function validateKey(key) {
       `Oops, found / character in database property '${key}'.`,
       '',
       "/ aren't supported, if you want to tweak default routes, see",
-      'https://github.com/typicode/json-server/#add-custom-routes'
+      'https://github.com/kosChupahin/json-server-contains/#add-custom-routes'
     ].join('\n')
     throw new Error(msg)
   }
@@ -18,7 +18,7 @@ module.exports = obj => {
   } else {
     throw new Error(
       `Data must be an object. Found ${typeof obj}.` +
-        'See https://github.com/typicode/json-server for example.'
+        'See https://github.com/kosChupahin/json-server-contains for example.'
     )
   }
 }

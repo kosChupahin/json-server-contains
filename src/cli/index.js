@@ -90,7 +90,7 @@ module.exports = function() {
     .example('$0 db.json', '')
     .example('$0 file.js', '')
     .example('$0 http://example.com/db.json', '')
-    .epilog('https://github.com/typicode/json-server')
+    .epilog('https://github.com/kosChupahin/json-server-contains')
     .require(1, 'Missing <source> argument').argv
 
   run(argv)

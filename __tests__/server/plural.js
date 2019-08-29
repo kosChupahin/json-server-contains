@@ -83,6 +83,13 @@ describe('Server', () => {
       { id: 15 }
     ]
 
+    db.products = [
+      { name: 'first product', availableLocales: ['ru', 'en', 'fr'] },
+      { name: 'second product', availableLocales: ['ru', 'en'] },
+      { name: 'third product', availableLocales: ['ru'] },
+      { name: 'fourth product' }
+    ]
+
     server = jsonServer.create()
     router = jsonServer.router(db)
     server.use(jsonServer.defaults())
@@ -356,6 +363,24 @@ describe('Server', () => {
         .get('/tags?body_like=photo')
         .expect('Content-Type', /json/)
         .expect([db.tags[1], db.tags[2]])
+        .expect(200))
+  })
+
+  describe('GET /:resource?attr_contains=', () => {
+    it('should respond with an array that matches the contains operator', () =>
+      request(server)
+        .get('/products?availableLocales_contains=ru')
+        .expect('Content-Type', /json/)
+        .expect([db.products[0], db.products[1], db.products[2]])
+        .expect(200))
+
+    it('should respond with an array that matches the contains operator when multiple contains', () =>
+      request(server)
+        .get(
+          '/products?availableLocales_contains=ru&availableLocales_contains=en&availableLocales_contains=fr'
+        )
+        .expect('Content-Type', /json/)
+        .expect([db.products[0]])
         .expect(200))
   })
 
