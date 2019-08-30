@@ -85,6 +85,9 @@
     "type": "git",
     "url": "git://github.com/kosChupahin/json-server-contains.git"
   },
+  "publishConfig": {
+    "registry": "http://nexus.aws.wiley.com:8081/nexus/content/repositories/npm_local/"
+  },
   "keywords": [
     "JSON",
     "server",
@@ -101,7 +104,7 @@
     "dummy",
     "sandbox"
   ],
-  "author": "Typicode <typicode@gmail.com>",
+  "author": "Typicode",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kosChupahin/json-server-contains/issues"
