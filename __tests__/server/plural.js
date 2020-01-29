@@ -382,6 +382,15 @@ describe('Server', () => {
         .expect('Content-Type', /json/)
         .expect([db.products[0]])
         .expect(200))
+
+    it('should respond with an array that matches the contains operator when multiple random order contains', () =>
+      request(server)
+        .get(
+          '/products?availableLocales_contains=en&availableLocales_contains=fr&availableLocales_contains=ru'
+        )
+        .expect('Content-Type', /json/)
+        .expect([db.products[0]])
+        .expect(200))
   })
 
   describe('GET /:parent/:parentId/:resource', () => {

@@ -33,7 +33,7 @@ module.exports = (db, name, opts) => {
     return chain.filter(element => {
       const elementValue = _.get(element, path);
       const intersections = _.intersection(elementValue, params);
-      return _.isEqual(intersections, params);
+      return _.isEqual(intersections.sort(), params.sort());
     })
   }
 
